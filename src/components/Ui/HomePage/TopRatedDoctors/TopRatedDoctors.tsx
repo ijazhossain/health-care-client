@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Link from "next/link";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 const TopRatedDoctors = async () => {
   const res = await fetch("http://localhost:5000/api/v1/doctor?page=1&limit=3");
   const { data: doctors } = await res.json();
@@ -46,7 +47,7 @@ const TopRatedDoctors = async () => {
         >
           {doctors.map((doctor: any) => (
             <Grid key={doctor.id} size={{ md: 4 }}>
-              <Card sx={{ maxWidth: 345 }}>
+              <Card>
                 <CardMedia
                   sx={{ width: "100%", height: 300, objectFit: "cover" }}
                   image={doctor.profilePhoto}
@@ -60,11 +61,15 @@ const TopRatedDoctors = async () => {
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>
                     {doctor.qualification}, {doctor.designation}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "text.secondary", marginTop: 1 }}
+                  >
+                    <LocationOnIcon />
                     {doctor.address}
                   </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions sx={{ justifyContent: "space-between" }}>
                   <Button size="small">Book Now</Button>
                   <Button size="small" variant="outlined">
                     View Profile
