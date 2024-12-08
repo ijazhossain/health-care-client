@@ -58,7 +58,7 @@ const Footer = () => {
             P
             <Box component="span" color="primary.main">
               H
-            </Box>{" "}
+            </Box>
             Health Care
           </Typography>
           <Typography component="p" color="white">
